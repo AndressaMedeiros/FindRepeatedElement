@@ -12,7 +12,7 @@ class Program
         string resposta = Console.ReadLine()?.Trim().ToLower();
         bool exibir = (resposta == "s" || resposta == "sim");
 
-        Console.WriteLine("Algoritmo\tTempo de execucao (ms)\tMemoria usada (KB)\tNumero repetido");
+        Console.WriteLine("Algoritmo\tTempo de execucao (ms)\tMemoria usada (MB)\tNumero repetido");
 
         foreach (var tam in tamanhos)
         {
