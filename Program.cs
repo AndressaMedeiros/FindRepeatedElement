@@ -90,14 +90,37 @@ class Program
 
     static (bool, int?) FindDivisaoConquista(int[] nums)
     {
-        if (nums.Length <= 1) return (false, null);
 
-        Array.Sort(nums);
+        (bool, int?) RecurFind(int[] lista, int left, int right)
+        {
+            if (right <= left) return (false, null);
 
-        for (int i = 1; i < nums.Length; i++)
-            if (nums[i] == nums[i - 1]) return (true, nums[i]);
+            int pontoMedio = (left + right) / 2;
 
-        return (false, null);
+            var leftResult = RecurFind(lista, left, pontoMedio);
+            var rightResult = RecurFind(lista, pontoMedio + 1, right);
+
+            if (leftResult.Item1) return leftResult;
+            if (rightResult.Item1) return rightResult;
+
+            HashSet<int> check = new HashSet<int>();
+
+            for (int i = left; i <= pontoMedio; i++)
+            {
+                if (check.Contains(lista[i])) return (true, lista[i]);
+                check.Add(lista[i]);
+            }
+
+            for (int i = pontoMedio + 1; i <= right; i++)
+            {
+                if (check.Contains(lista[i])) return (true, lista[i]);
+                check.Add(lista[i]);
+            }
+
+            return (false, null);
+        }
+
+        return RecurFind(nums, 0, nums.Length - 1);
     }
 
     static (bool, int?) FindProgDinamica(int[] nums)
