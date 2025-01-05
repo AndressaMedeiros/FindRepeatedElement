@@ -22,7 +22,7 @@ registros duplicados para manter a base limpa e evitar redundâncias. </p>
 1. **Força Bruta**: consiste em verificar todos os pares de elementos para ver se algum deles é igual. Essa abordagem tem complexidade de tempo 
 O(n²)
 
-2. **Algoritmo Gulosos**: reduz o espaço de busca ao tentar tomar a decisão mais "localmente ótima" a cada passo. Essa abordagem envolve o uso de um conjunto para verificar se um elemento já foi encontrado enquanto percorre o array, a complexidade de tempo é O(n)
+2. **Algoritmo Guloso**: reduz o espaço de busca ao tentar tomar a decisão mais "localmente ótima" a cada passo. Essa abordagem envolve o uso de um conjunto para verificar se um elemento já foi encontrado enquanto percorre o array, a complexidade de tempo é O(n)
    
 3. **Divisão e Conquista**: O algoritmo divide o problema em subproblemas menores, resolve-os individualmente e depois combina os resultados. Com complexidade O(n log n)
    
